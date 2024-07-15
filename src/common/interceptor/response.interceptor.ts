@@ -36,7 +36,7 @@ export class ResponseInterceptor<T> implements NestInterceptor<T, IResponse<T>> 
     response.status(status).json({
       statusCode: status,
       message: exception.message,
-      data: exception?.getResponse() ?? null,
+      data: exception ? exception.getResponse : null,
     });
   }
 }

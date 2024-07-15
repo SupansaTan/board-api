@@ -2,7 +2,6 @@ import { ISignInResponse } from 'src/common/interface/signIn.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { userList } from 'src/common/constant/user.constant';
 import { JwtService, JwtSignOptions } from '@nestjs/jwt';
-import { jwtConstants } from './constant/jwt.constant';
 import { IUser } from 'src/common/interface/user.dto';
 
 @Injectable()
@@ -15,7 +14,7 @@ export class AuthService {
   ) {
     this.usernameList = userList;
     this.jwtOptions = {
-      secret: jwtConstants.secret,
+      secret: process.env.JWT_SECRET,
     };
   }
 
@@ -32,6 +31,7 @@ export class AuthService {
     const payload = { userId: userInfo.userId, username: userInfo.username };
     let response = new ISignInResponse();
     response.accessToken = this.jwtService.sign(payload, this.jwtOptions);
+    response.username = userInfo.username;
     return response;
   }
 

@@ -10,5 +10,10 @@ export class ISignInRequest {
 
 export class ISignInResponse {
   @ApiProperty()
+  @IsString()
   accessToken: string;
+
+  @ApiProperty()
+  @IsString()
+  username: string;
 }
