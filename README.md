@@ -7,14 +7,13 @@ $ npm install
 ```
 
 ## Setting environment file
-
+Adding .env file with the below variable
 ```bash
-$ JWT_SECRET=SECRETsecretSECRET
+JWT_SECRET=SECRETsecretSECRET
 ```
 
 ## Running the app
-
-# running on 'localhost:4000'
+serve will run on `localhost:4000`
 
 ```bash
 # development
@@ -28,9 +27,8 @@ $ npm run start:prod
 ```
 
 ## Swagger path
-
 ```bash
-$ localhost:4000/api
+localhost:4000/api
 ```
 
 ## Unit tests
