@@ -8,6 +8,7 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { PostService } from './post.service';
 import { IResponse } from 'src/common/interface/response.dto';
 import { IAddCommentRequest, IComment } from 'src/common/interface/comment.dto';
+import { Public } from 'src/auth/auth.decorator';
 
 @ApiTags('Post')
 @Controller('post')
@@ -16,7 +17,9 @@ export class PostController {
     private postService: PostService
   ) { }
 
+  @UseGuards(AuthGuard)
   @Post('postList')
+  @Public()
   @UseInterceptors(CacheInterceptor)
   @CacheTTL(60)
   @HttpCode(HttpStatus.OK)
