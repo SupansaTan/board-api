@@ -22,7 +22,6 @@ export class PostService {
       if (!userId) {
         throw new ForbiddenException('You have to login before');
       }
-
       response = response.filter(p => p.createBy === userId);
     }
 
@@ -60,7 +59,7 @@ export class PostService {
     });
 
     const sortedPost = updatedPostInfo.sort((prev, curr) =>
-      prev.createDate.getTime() - curr.createDate.getTime()
+      curr.createDate.getTime() - prev.createDate.getTime()
     );
 
     return sortedPost;
@@ -89,6 +88,7 @@ export class PostService {
     newPost.content = postDetail.content;
     newPost.createBy = userId;
     newPost.createDate = new Date();
+    newPost.community = Number(postDetail.community);
 
     this.postList.push(newPost);
     return true;
@@ -108,6 +108,7 @@ export class PostService {
     if (indexToModified >= 0) {
       postInfo.postTitle = postDetail.postTitle;
       postInfo.content = postDetail.content;
+      postInfo.community = Number(postDetail.community);
       return true;
     } else {
       throw new NotFoundException('Post not found');

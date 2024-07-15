@@ -12,7 +12,7 @@ export class IComment {
 
   @ApiProperty()
   @IsString()
-  postBy: string;
+  commentBy: string;
 
   @ApiProperty()
   @IsString()

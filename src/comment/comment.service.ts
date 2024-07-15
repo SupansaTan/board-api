@@ -18,11 +18,11 @@ export class CommentService {
     const filteredComment = this.commentList.filter(c => c.postId === postId);
     const updatedComment = filteredComment.map((c) => ({
       ...c,
-      postBy: this.authService.getUsername(c.postBy),
+      commentBy: this.authService.getUsername(c.commentBy),
     }));
 
     const sortedCommenet = updatedComment.sort((prev, curr) =>
-      prev.createDate.getTime() - curr.createDate.getTime()
+      curr.createDate.getTime() - prev.createDate.getTime()
     );
 
     return sortedCommenet;
@@ -38,7 +38,7 @@ export class CommentService {
     newComment.comment = comment;
     newComment.createDate = new Date();
     newComment.postId = postId;
-    newComment.postBy = userId;
+    newComment.commentBy = userId;
 
     this.commentList.push(newComment);
     return true;

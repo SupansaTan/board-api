@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsBoolean, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsEnum, IsNumber, IsNumberString, IsOptional, IsString, ValidateNested } from "class-validator";
 import { Community } from "../enum/community.enum";
 import { IComment } from "./comment.dto";
 
@@ -52,6 +52,10 @@ export class IModifyPostRequest {
   @ApiProperty()
   @IsString()
   content: string;
+
+  @ApiProperty()
+  @IsNumberString()
+  community: number;
 }
 
 export class IPostInfo {
