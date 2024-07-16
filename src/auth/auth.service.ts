@@ -1,8 +1,8 @@
-import { ISignInResponse } from 'src/common/interface/signIn.dto';
+import { ISignInResponse } from '../common/interface/signIn.dto';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { userList } from 'src/common/constant/user.constant';
+import { userList } from '../common/constant/user.constant';
 import { JwtService, JwtSignOptions } from '@nestjs/jwt';
-import { IUser } from 'src/common/interface/user.dto';
+import { IUser } from '../common/interface/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -36,6 +36,6 @@ export class AuthService {
   }
 
   getUsername(userId: string): string {
-    return this.usernameList.find(u => u.userId === userId).username ?? '';
+    return this.usernameList.find(u => u.userId === userId)?.username ?? '';
   }
 }
