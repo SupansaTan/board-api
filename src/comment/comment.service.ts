@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { AuthService } from 'src/auth/auth.service';
-import { commentList } from 'src/common/constant/comment.constant';
-import { IComment } from 'src/common/interface/comment.dto';
+import { AuthService } from '../auth/auth.service';
+import { commentList } from '../common/constant/comment.constant';
+import { IComment } from '../common/interface/comment.dto';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()
