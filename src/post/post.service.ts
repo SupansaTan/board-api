@@ -1,8 +1,8 @@
 import { CommentService } from './../comment/comment.service';
 import { AuthService } from './../auth/auth.service';
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
-import { PostList } from 'src/common/constant/post.constant';
-import { IPost, IModifyPostRequest, IPostInfo, IGetPostListRequest } from 'src/common/interface/post.dto';
+import { PostList } from '../common/constant/post.constant';
+import { IPost, IModifyPostRequest, IPostInfo, IGetPostListRequest } from '../common/interface/post.dto';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()
