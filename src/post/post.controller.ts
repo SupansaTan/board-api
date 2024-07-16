@@ -1,14 +1,14 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Request, UseGuards, UseInterceptors } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiResponse, ApiTags, getSchemaPath } from '@nestjs/swagger';
-import { IGetPostListRequest, IModifyPostRequest, IPostInfo } from 'src/common/interface/post.dto';
-import { ApiResponseWithType, BooleanProperty, ObjectProperty } from 'src/common/swagger/custom-response';
+import { IGetPostListRequest, IModifyPostRequest, IPostInfo } from '../common/interface/post.dto';
+import { ApiResponseWithType, BooleanProperty, ObjectProperty } from '../common/swagger/custom-response';
 import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
-import { AuthRequest } from 'src/common/interface/auth.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthRequest } from '../common/interface/auth.dto';
+import { AuthGuard } from '../auth/auth.guard';
 import { PostService } from './post.service';
-import { IResponse } from 'src/common/interface/response.dto';
-import { IAddCommentRequest, IComment } from 'src/common/interface/comment.dto';
-import { Public } from 'src/auth/auth.decorator';
+import { IResponse } from '../common/interface/response.dto';
+import { IAddCommentRequest, IComment } from '../common/interface/comment.dto';
+import { Public } from '../auth/auth.decorator';
 
 @ApiTags('Post')
 @Controller('post')
